@@ -1,0 +1,40 @@
+﻿@model HackerOlympics.Login.Models.UrbanStartup
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#accordion").accordion();
+        });
+    </script>
+
+</head>
+
+<body>
+
+    <h1>Startup Name Generator</h1>
+
+    <h1>@Model.StartupName</h1>
+    <p>What was the inspiration behind this name?</p>
+    <div id="accordion">
+        @foreach(string name in Model.Names.Keys) {
+        <h3>@name</h3>
+        <div>
+            <p>
+                @Model.Names[name]
+            </p>
+        </div>
+        }
+    </div>
+
+</body>
