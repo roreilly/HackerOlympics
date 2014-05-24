@@ -1,0 +1,58 @@
+﻿@model HackerOlympics.Login.Models.GeneratePassword
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var lastName;
+            $(".person").click(function() {
+                $("#password").text($("#password").text() + $(this).attr("data-name") + " ");
+                return false;
+            });
+            $("#login").click(function() {
+                document.location = "/?name=lastperson&password=" + $("#password").text();
+                return false;
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <h1>LOGIN!</h1>
+        <p>Send password to followinge person:</p>
+        <ul>
+            @foreach (string name in Model.Names.Keys)
+            {
+                <li><a href="/?name=@name" data-name="@name">@name</a></li>
+            }
+        </ul>
+        <h3>Enter password</h3>
+        <ul>
+            @foreach (string name in Model.Names.Keys)
+            {
+                <li><a href="#" class="person" data-name="@name">@name</a></li>
+            }
+        </ul>
+        <div id="password"></div>
+        <a id="login" href="/?name=&pass=">LOGIN</a>
+        @if (Model.Authenticated)
+        {
+            <h1> AUTHENTICATED</h1>
+        }
+        else
+        {
+            <h1>NOT AUTHENTICATED</h1>
+        }
+        
+    </div>
+</body>
+</html>
