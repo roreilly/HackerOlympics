@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script>
+
+        $(function () {
+
+            var d1 = 1000;
+            var d2 = 1000;
+            var d3 = 5010;
+            var math;
+            $(".start").click(function() {
+                $("#result").text("Started");
+                for (var a = 0; a < d1; a++) {
+                    for (var b = 0; b < d2; b++) {
+                        for (var c = 0; c < d3; c++) {
+                            math = a * b / c;
+                        }
+                    }
+                }
+                $("#result").text("Finished");
+                return false;
+            });
+
+        });
+    </script>
+
+</head>
+
+<body>
+
+    <h1>Anti-Optimizer</h1>
+
+    <a href="#" class="start">Start</a>
+    <div id="result"></div>
+
+
+</body>
